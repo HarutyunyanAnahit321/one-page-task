@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { Layout } from 'antd';
+import NavBar from './components/header';
+import SearchStudent from './components/sider';
+import MainContent from './components/content';
+import 'antd/dist/antd.css';
+
+const { Sider, Content, Header } = Layout;
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Layout>
+        <Header style={{ backgroundColor: 'white' }}>
+          <NavBar/>
+        </Header>
+      <div style={{display: 'flex'}}>
+        <Sider style={{ backgroundColor: 'white', display: 'contents' }}>
+          <SearchStudent/>
+        </Sider>
+        <Content style={{ backgroundColor: 'white' }}>
+            <MainContent/>
+        </Content>
+      </div>
+      </Layout>
+    </>
   );
 }
 
